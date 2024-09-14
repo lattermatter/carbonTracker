@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 1rem;
+}
+
+#main-title {
+    padding: 1rem
+}
+
+/* Input form styling */
+
+.form-section, .results-section {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* General buttons */
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Only sign out buttons */
+
+#sign-out-btn {
+    background-color: #18aa5a; /* Ensure the button looks like the others */
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#sign-out-btn:hover {
+    background-color: #21d572;
+}
+
+/* Navbar elements */
+
+/* Styling for the navbar container */
+#navbar {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+}
+
+#navbar ul {
+    list-style-type: none; /* Remove bullets */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Align items horizontally */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling for each element in the navbar */
+#navbar-element {
+    margin: 0 1rem; /* Add space between elements */
+}
+
+/* Link styling inside navbar */
+#navbar-element a {
+    color: #fff;
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+}
+
+/* Form input area styling */
+form textarea {
+    width: 99%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: vertical; /* Allow the textarea to be resizable vertically */
+}
