@@ -30,8 +30,11 @@
         <h1>Carbon Footprint Tracker</h1>
 
         <section class="form-section">
-            <h2>Enter Your Information</h2>
-            <form id="carbonForm">
+            <h2>Enter Information for a Date</h2>
+            <form id="carbonInfoForm">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
                 <label for="miles">Miles Driven:</label>
                 <input type="number" id="miles" name="miles" required>
 
@@ -48,11 +51,50 @@
             </form>
         </section>
         
+        <!-- Success placeholder -->
+        <div id="success-message" style="display: none; color: green; margin-top: 1rem;"></div>
 
 
     </main>
 
-    <script src="firebase-init.js"></script>
-    <script src="check-auth.js"></script>
+    <script type="module" src="js/firebase-init.js"></script>
+    <script type="module" src="js/check-auth.js"></script>
+    <script type="module">
+        // specifying file becuase outside the directory
+        // ./ means its a dir of current dir
+        import { storeData, displaySuccessMessage } from './js/store-data.js';
+
+        document.getElementById('carbonInfoForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // no conversion needed
+            const dateInput = document.getElementById('date').value;
+            // number constants are inputted as 0 if not 0
+            const miles = parseFloat(document.getElementById('miles').value) || 0;
+            const hours = parseFloat(document.getElementById('hours').value) || 0;
+            const energy = parseFloat(document.getElementById('energy').value) || 0;
+            // converts solar id value into boolean
+            const solar = (document.getElementById('solar').value.toLowerCase() === 'yes') || 
+            (document.getElementById('solar').value.toLowerCase() === 'Yes') || 
+            (document.getElementById('solar').value.toLowerCase() === 'y');
+          
+            const data = { 
+              date: dateInput,
+              miles: miles, 
+              hours: hours, 
+              energy: energy,
+              solar: solar,
+              timestamp: new Date()
+            };
+          
+            try {
+              await storeData('user_carbon_data', data);
+              document.getElementById('carbonInfoForm').reset();
+              displaySuccessMessage('success-message', `Information for the date ${dateInput} has been submitted successfully!`);
+            } catch (error) {
+              console.error("Error storing data:", error);
+            }
+          });
+        
+    </script>
 </body>
 </html>

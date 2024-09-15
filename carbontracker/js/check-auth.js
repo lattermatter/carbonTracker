@@ -7,7 +7,6 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
-console.log("script loaded");
 
 // The user is signed out if the sign out button is clicked.
 document.getElementById('sign-out-btn').addEventListener('click', () => {
