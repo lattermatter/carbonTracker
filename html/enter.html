@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Tracker</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar">
+        <header>
+            <nav id="navbar">
+            <ul>
+                <li id="navbar-element"><a href="index.html">Home</a></li>
+                <li id="navbar-element"><a href="enter.html">Enter Data</a></li>
+                <li id="navbar-element"><a href="dashboard.html">Dashboard</a></li>
+                <li id="navbar-element"><a href="tracking.html">Tracking</a></li>
+                <li id="navbar-element"><a href="recommendations.html">Recommendations</a></li>
+                <li id="navbar-element"><button id="sign-out-btn">Sign Out</button></li>
+            </ul>
+            </nav>
+        </header>
+    </div>
+
+    <main>
+        
+        <h1>Carbon Footprint Tracker</h1>
+
+        <section class="form-section">
+            <h2>Enter Information for a Date</h2>
+            <p>Make sure you have completed the starting form on your dashboard!</p>
+            <form id="carbonInfoForm">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="miles">Miles Driven:</label>
+                <input type="number" id="miles" name="miles" required>
+
+                <label for="hours">Digital Device Usage (hours):</label>
+                <input type="number" id="hours" name="hours" step="0.1" required>
+
+                <label for="energy">Home Energy Usage (kWh):</label>
+                <input type="number" id="energy" name="energy" step="0.1" required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        
+        <!-- Success placeholder -->
+        <div id="success-message" style="display: none; color: green; margin-top: 1rem;"></div>
+
+
+    </main>
+
+    <script type="module" src="../js/firebase-init.js"></script>
+    <script type="module" src="../js/check-auth.js"></script>
+    <script type="module" src="../js/enterdate.js"></script>
+</body>
+</html>
