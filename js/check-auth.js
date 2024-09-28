@@ -3,7 +3,13 @@ import { auth } from './firebase-init.js';
 // If any other page is loaded without authentication, the user is sent back to login/home
 auth.onAuthStateChanged((user) => {
   if (!user) {
-    window.location.href = 'auth.html';
+    if (!window.location.href.includes('index.html')) {
+      window.location.href = 'auth.html';
+    } else {
+      // Update header to say the message
+      const header = document.getElementById("header"); // Assuming your header has this ID
+      header.innerHTML = "<h4>Please make sure to login before accessing the application. <a href='auth.html'>Login</a></h4>";
+    }
   }
 });
 
