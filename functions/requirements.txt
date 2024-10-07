@@ -1,7 +1,4 @@
-functions-framework
+nltk
 google-cloud-firestore
-firebase-functions
-oauth2client
-pandas
-matplotlib
-seaborn
+flask
+functions-framework

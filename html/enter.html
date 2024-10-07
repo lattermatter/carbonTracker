@@ -31,7 +31,7 @@
 
         <section class="form-section">
             <h2>Enter Information for a Date</h2>
-            <p>Make sure you have completed the starting form on your dashboard!</p>
+            <p>Make sure you have completed the initialization form!</p>
             <form id="carbonInfoForm">
                 <label for="date">Date:</label>
                 <input type="date" id="date" name="date" required>
@@ -45,6 +45,35 @@
                 <label for="energy">Home Energy Usage (kWh):</label>
                 <input type="number" id="energy" name="energy" step="0.1" required>
 
+                <button type="submit">Submit</button> 
+                <button type="button" id="deleteLastEntryButton">Delete Last Entry</button>
+                <button type="button" id="recentEntry">Date of Recent Entry</button>
+            </form>
+        </section>
+        
+        <!-- Success placeholder -->
+        <div id="success-message" style="display: none; color: green; margin-top: 1rem;"></div>
+
+        <section class="form-section">
+            <form id="initializeForm">
+                <h2>Initialization form</h2>
+                <label for="carfactor">Enter the emission factor for your car (gCO2/mile). Estimates: 400-500 for gas cars, 200-300 for hybrid cars, 
+                    150-200 for electric if home has no solar panels, 0 if home has solar panels.
+                </label>
+                <input type="number" id="carfactor" name="carfactor" required>
+
+                <label for="digitalfactor">Enter the average footprint for your digital devices (gCO2/hr). Smartphone: ~1.5-3, Laptop: ~40-70
+                    Desktop PC: ~120-200, Tablet: ~5-10, Monitor: ~25-30.<br>Weight factors according to usage.
+                    If you use a PC at work, enter 80-150; for students enter 50-90;
+                    for people with minimal laptop usage enter 10-25.  
+                </label>
+                <input type="number" id="digitalfactor" name="digitalfactor" required>
+
+                <label for="efactor">Enter your region's electricity factor (kgCO2/kWH). This varies region to region and it is best to find this info online.
+                    ENTER 0 if you have solar panels. <br> Examples (US): Northwest ~200-300, Northeast & California ~150-250, Southwest ~250-400, Southeast ~300-500 
+                </label>
+                <input type="number" id="efactor" name="efactor" required>
+
                 <button type="submit">Submit</button>
             </form>
         </section>
@@ -52,11 +81,11 @@
         <!-- Success placeholder -->
         <div id="success-message" style="display: none; color: green; margin-top: 1rem;"></div>
 
-
     </main>
 
     <script type="module" src="../js/firebase-init.js"></script>
     <script type="module" src="../js/check-auth.js"></script>
     <script type="module" src="../js/enterdate.js"></script>
+    <script type="module" src="../js/enter-init.js"></script>
 </body>
 </html>

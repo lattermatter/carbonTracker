@@ -29,16 +29,18 @@
         <p>Manage your carbon footprint and get personalized recommendations!</p>
 
         <section class="form-section">
-            <h2>Get recommendations</h2>
-            <!-- JS gets input from carbon-issue-form...-->
+          <h2>Get recommendations</h2>
+          
+          <form id="carbon-issue-form">
+              <label for="recommend-input">Describe your carbon-related issue (400 char limit, 2 per week per user):</label>
+              <textarea id="recommend-input" name="recommend-input" rows="5" placeholder="Enter details here..." required></textarea>
+              <button type="submit">Submit</button>
+      
+              <div id="success-message" style="display: none; color: green; margin-top: 1rem;"></div>
+              <div id="error-message" style="display: none; color: red; margin-top: 1rem;"></div>
+              <div id="recommendation-output" style="margin-top: 1rem; font-weight: bold; color: blue;"></div> <!-- New sentiment display -->
 
-            <form id="carbon-issue-form">
-                <!--...and references recommend-input for the actual data. -->
-                <label for="recommend-input">Describe your carbon-related issue:</label>
-                <textarea id="recommend-input" name="recommend-input" rows="5" placeholder="Enter details here..." required></textarea>
-                <button type="submit">Submit</button>
-
-            </form>
+          </form>
         </section>
 
     </main>
@@ -47,25 +49,6 @@
   <!-- TYPE=MODULE, SCRIPT LOADING -->
   <script type="module" src="../js/firebase-init.js"></script>
   <script type="module" src="../js/check-auth.js"></script>
-  <script type="module">
-    // specifying file becuase outside the directory
-    // ./ means its a dir of current dir
-    import { storeData } from '../js/store-data.js';
-
-    document.getElementById('carbon-issue-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const issue = document.getElementById('recommend-input').value;
-      const data = { 
-        recommendation_input: issue, 
-        timestamp: new Date() 
-      };
-      try {
-        await storeData('user_recommendations', data);
-        document.getElementById('carbon-issue-form').reset();
-      } catch (error) {
-        console.error("Error storing data:", error);
-      }
-    });
-  </script>
+  <script type="module" src="../js/fetch-recommendations.js"></script>
 </body>
 </html>

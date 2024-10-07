@@ -1,0 +1,7 @@
+functions-framework
+google-cloud-firestore
+firebase-functions
+oauth2client
+pandas
+matplotlib
+seaborn

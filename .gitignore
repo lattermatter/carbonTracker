@@ -1,3 +1,7 @@
+functions/py_user_key.json
+functions/venv/
+functions/deploy_folder
+
 # Logs
 logs
 *.log

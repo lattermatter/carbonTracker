@@ -16,6 +16,7 @@ document.getElementById('initializeForm').addEventListener('submit', async (e) =
         car_factor: car_factor, 
         digital_factor: digital_factor, 
         e_factor: e_factor,
+        days: 0,
         timestamp: new Date()
     };
 
